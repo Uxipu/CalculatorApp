@@ -20,6 +20,7 @@ class MainApp(App):
             ["4", "5", "6", "*"],
             ["1", "2", "3", "+"],
             [".", "0", "C", "-"],
+            ["DEL","="]
         ]
 
         for row in buttons:
@@ -29,16 +30,16 @@ class MainApp(App):
                     text = label, font_size = 30, background_color = "grey",
                     pos_hint = {"center_x": 0.5, "center_y": 0.5},
                 )
-                button.bind(on_press = self.on_button_press)
+                if label == "=":
+                    button.bind(on_press=self.on_solution)
+                elif label == "DEL":
+                    button.bind(on_press=self.on_delete)
+                else:    
+                    button.bind(on_press = self.on_button_press)
                 h_layout.add_widget(button)
             main_layout.add_widget(h_layout)
 
-        equal_button = Button(
-            text="=", font_size=30, background_color="grey",
-            pos_hint={"center_x": 0.5, "center_y": 0.5},
-        )
-        equal_button.bind(on_press=self.on_solution)
-        main_layout.add_widget(equal_button)
+        
 
         return main_layout
 
@@ -59,6 +60,11 @@ class MainApp(App):
                 self.solution.text = new_text
         self.last_button = button_text
         self.last_was_operator = self.last_button in self.operators
+        
+    def on_delete(self, instance):
+        current = self.solution.text
+        if current:
+            self.solution.text = current[:-1]
 
     def on_solution(self, instance):
         text = self.solution.text
