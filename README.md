@@ -7,6 +7,7 @@ Features
 * User-friendly interface with buttons for numeric input and operators.
 * Supports basic arithmetic operations (+, -, *, /).
 * Displays the result of calculations in real-time.
+* Includes a delete button (DEL) to remove the last character entered.
 * Error handling for division by zero and invalid expressions.
 
 Installation
@@ -21,7 +22,7 @@ Prerequisites
 Installation Steps
 
 # Clone the repository
-git clone https://github.com/your-username/calculator-app.git
+git clone https://github.com/Uxipu/CalculatorApp.git
 
 # Navigate to the project directory
 cd calculator-app
@@ -34,3 +35,4 @@ Usage
 2. Use the numeric buttons to input numbers and the operator buttons for arithmetic operations.
 3. Press the "=" button to calculate the result.
 4. Press the "C" button to clear the input.
+5. Press the "DEL" button to remove the last character
